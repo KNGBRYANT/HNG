@@ -6,7 +6,7 @@ import streamlit as st
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = None
 
-df = pd.read_csv(r"C:\Users\Mayo\Documents\HNG\cleaned_movie_dataset.csv")
+df = pd.read_csv(cleaned_movie_dataset.csv)
 df['last_rating_date'] = pd.to_datetime(df['last_rating_date'], errors='coerce')
 df['avg_rating'] = df['avg_rating'].round(1)
 
