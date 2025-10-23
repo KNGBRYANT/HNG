@@ -59,19 +59,17 @@ The dashboard is organized into multiple sections, each exploring different aspe
 
 ### 1️⃣ **Distribution of Average Ratings**
 - Displays the overall spread of movie ratings.
-- Most movies fall between **3–4 stars**, indicating balanced viewer sentiment.
+- Most movies fall between **2.5–4.2 stars**, indicating balanced viewer sentiment.
 
-🖼 **Screenshot Suggestion:**  
-Take a screenshot of the "Distribution of Average Ratings" bar chart.
+![Distribution of Average Ratings](Images/Distribution%20of%20Average%20Ratings.png)
 
 ---
 
 ### 2️⃣ **Average Rating by Number of Genres**
-- Movies with **3–4 genres** tend to receive slightly higher ratings (~3.3–3.4).
-- Overly diverse genre combinations (8–10) don’t show major improvements.
+- Movies with **7 genres** tend to receive slightly higher ratings (~3.3–3.4).
+- Overly diverse genre combinations (10) show higher improvements.
 
-🖼 **Screenshot Suggestion:**  
-Capture the bar plot comparing number of genres vs. average ratings.
+![Average Ratings by Number Of Genres](Images/Average%20Ratings%20by%20Number%20Of%20Genres.png)
 
 ---
 
@@ -79,27 +77,24 @@ Capture the bar plot comparing number of genres vs. average ratings.
 - Older **Documentary** and **Animation** movies perform best (~3.5 avg rating).
 - **Horror** consistently scores lower (~2.8).
 
-🖼 **Screenshot Suggestion:**  
-Show the grouped bar or bubble chart with genre vs age vs rating.
+![Genre VS Ratings VS Age](Images/Genre%20VS%20Ratings%20VS%20Age.png)
 
 ---
 
 ### 4️⃣ **Movie Age vs Average Rating**
-- Newer movies dominate rating activity.
-- Older classics (40–60 years) maintain strong, stable ratings.
+- Newer movies are fewer compared to older ones.
+- Their ratings mostly cluster between 2.5 and 4.
 
-🖼 **Screenshot Suggestion:**  
-Include scatter plot visualization with age vs. rating (bubble size = tags).
+![Movie Age VS Ratings](Images/Movie%20Age%20VS%20Ratings.png)
 
 ---
 
 ### 5️⃣ **Top 10 Highest & Lowest Rated Movies**
 - Lists the most loved and least liked movies by audience score.
 
-🖼 **Screenshot Suggestion:**  
-Take two separate screenshots showing:
-1. “⭐ Top 10 Highest Rated Movies” table  
-2. “💔 Top 10 Lowest Rated Movies” table  
+![Highest Rated Movie](Images/Screenshot%202025-10-23%20175541.png)
+
+![Lowest Rated Movie](Images/Screenshot%202025-10-23%20175558.png)
 
 ---
 
@@ -107,8 +102,7 @@ Take two separate screenshots showing:
 - **Pulp Fiction**, **Fight Club**, and **2001: A Space Odyssey** lead engagement.
 - High tagging reflects community interest and discussion value.
 
-🖼 **Screenshot Suggestion:**  
-Include screenshot of bar chart showing the most tagged movies.
+![Top 10 Most Tagged Movies](Images/Top%2010%20Most%20Tag%20Movies.png)
 
 ---
 
@@ -116,8 +110,7 @@ Include screenshot of bar chart showing the most tagged movies.
 - Frequent tags: “In Netflix Queue”, “Atmospheric”, “Superhero”.
 - Indicates ongoing viewer themes and streaming relevance.
 
-🖼 **Screenshot Suggestion:**  
-Capture the tag frequency visualization.
+![Top 10 Most Common Movie Tags](Images/Top%2010%20Most%20common%20movie%20tag.png)
 
 ---
 
@@ -208,7 +201,8 @@ If you use this dataset, please cite:
 
 **Lawal Mayowa**  
 *Stage 1 Submission — Feature Engineering & EDA*  
-📧 Contact: [Your Email or LinkedIn Here]  
+📧 Contact: [Lawal Mayowa](https://www.linkedin.com/in/lawal-mayowa-160bb930b/)
+
 🌐 Live Dashboard: [https://movie-dashboard1.streamlit.app/](https://movie-dashboard1.streamlit.app/)
 
 ---
