@@ -18,6 +18,7 @@ def load_data():
     return df
 
 df = load_data()
+df.columns = [col.replace("_", " ").title() for col in df.columns]
 
 # ==============================
 # Title and Introduction
@@ -48,22 +49,36 @@ st.header("📊 Raw Movie Data")
 num_rows = st.slider("Number of rows to view:", 5, 100, 10, step=5)
 st.dataframe(df.head(num_rows))
 
-# ==============================
-# Top & Lowest Rated Movies
-# ==============================
-col1, col2 = st.columns(2)
+# --- Top 10 Highest Rated Movies ---
+st.subheader("⭐ Top 10 Highest Rated Movies")
 
-with col1:
-    st.subheader("⭐ Top 10 Highest Rated Movies")
-    top10 = df_filtered.sort_values('avg_rating', ascending=False).head(10)[['title','release_year','avg_rating']]
-    top10['avg_rating'] = top10['avg_rating'].map("{:.1f}".format)
-    st.table(top10)
+top10 = (
+    df_filtered.sort_values('avg_rating', ascending=False)
+    .head(10)[['title', 'release_year', 'avg_rating']]
+    .copy()
+)
+top10['avg_rating'] = top10['avg_rating'].map("{:.1f}".format)
+top10.columns = ['Title', 'Release Year', 'Average Rating']  # nicer headers
 
-with col2:
-    st.subheader("💔 Top 10 Lowest Rated Movies")
-    low10 = df_filtered.sort_values('avg_rating', ascending=True).head(10)[['title','release_year','avg_rating']]
-    low10['avg_rating'] = low10['avg_rating'].map("{:.1f}".format)
-    st.table(low10)
+st.table(top10)
+
+
+# --- Spacer between tables ---
+st.markdown("---")  # adds a horizontal line for separation
+
+
+# --- Top 10 Lowest Rated Movies ---
+st.subheader("💔 Top 10 Lowest Rated Movies")
+
+low10 = (
+    df_filtered.sort_values('avg_rating', ascending=True)
+    .head(10)[['title', 'release_year', 'avg_rating']]
+    .copy()
+)
+low10['avg_rating'] = low10['avg_rating'].map("{:.1f}".format)
+low10.columns = ['Title', 'Release Year', 'Average Rating']
+
+st.table(low10)
 
 # ==============================
 # Average Rating by Number of Genres
