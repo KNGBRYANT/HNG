@@ -161,3 +161,22 @@ ax.set_ylabel("Average Rating")
 ax.set_title("Genre vs Rating vs Movie Age")
 ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 st.pyplot(fig)
+
+st.subheader("Movie Age vs Average Rating")
+
+fig, ax = plt.subplots(figsize=(12,6))
+sns.scatterplot(
+    data=df_filtered,
+    x='movie_age', 
+    y='avg_rating', 
+    size='N0_of_tags',  # size indicates popularity
+    hue='avg_rating',   # color by rating
+    palette='cool', 
+    sizes=(20,200),
+    alpha=0.7,
+    ax=ax
+)
+ax.set_xlabel("Movie Age (Years)")
+ax.set_ylabel("Average Rating")
+ax.set_title("Movie Age vs Average Rating (Size=Number of Tags)")
+st.pyplot(fig)
