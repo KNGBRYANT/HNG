@@ -227,6 +227,47 @@ st.pyplot(fig)
 plt.close(fig)
 
 
+# --- Top 10 Most Common Movie Tags Section ---
+import streamlit as st
+import matplotlib.pyplot as plt
+from collections import Counter
+
+# Section header
+st.subheader("🎬 Top 10 Most Common Movie Tags (Excluding 'Unknown')")
+
+# Clean and count tags
+all_tags = ', '.join(df['tag'].dropna()).split(', ')
+clean_tags = [tag.strip() for tag in all_tags if tag.strip().lower() != 'unknown' and tag.strip() != '']
+tag_counts = Counter(clean_tags)
+top_tags = dict(tag_counts.most_common(10))
+
+# Create figure
+fig, ax = plt.subplots(figsize=(8, 4))
+bars = ax.bar(top_tags.keys(), top_tags.values(), color='#5bc0de', edgecolor='black', linewidth=0.8)
+
+# Add value labels
+for bar in bars:
+    height = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width()/2, height + 0.3, f'{int(height)}', 
+            ha='center', va='bottom', fontsize=8, color='black')
+
+# Clean styling
+ax.set_title('Top 10 Most Common Movie Tags', fontsize=12, weight='bold', pad=15)
+ax.set_xlabel('Tags', fontsize=10)
+ax.set_ylabel('Frequency', fontsize=10)
+ax.set_xticklabels(top_tags.keys(), rotation=45, ha='right', fontsize=9)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.grid(axis='y', linestyle='--', alpha=0.4)
+
+# Display in Streamlit
+st.pyplot(fig)
+
+# Optional short insight below chart
+st.caption("Tags reveal audience themes and interests beyond movie genres, supporting better content classification and recommendations.")
+
+
+
 # ==============================
 # Summary & Conclusion Section
 # ==============================
