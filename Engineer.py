@@ -58,23 +58,40 @@ st.markdown("🎬 Movie Ratings Overview")
 # Format column names to look professional (e.g., 'Release Year' instead of 'release_year')
 df.columns = [col.replace("_", " ").title() for col in df.columns]
 
-# Top 10 Highest Rated Movies
-st.markdown("⭐ Top 10 Highest Rated Movies")
-top_highest = df.sort_values("avg_rating", ascending=False).head(10)
-st.dataframe(
-    top_highest.style.hide(axis="index"),
-    use_container_width=True
-)
 
-st.markdown("---")  # horizontal line for separation
 
-# Top 10 Lowest Rated Movies
-st.markdown("💔 Top 10 Lowest Rated Movies")
-top_lowest = df.sort_values("avg_rating", ascending=True).head(10)
-st.dataframe(
-    top_lowest.style.hide(axis="index"),
-    use_container_width=True
+
+# --- Top 10 Highest and Lowest Rated Movies ---
+st.header("🎬 Movie Ratings Overview")
+
+# Ensure column names are clean and consistent
+df.columns = df.columns.str.strip().str.lower()
+
+# --- Highest Rated Movies ---
+st.subheader("⭐ Top 10 Highest Rated Movies")
+top_highest = (
+    df.sort_values("avg_rating", ascending=False)
+      .head(10)[["title", "release_year", "avg_rating"]]
+      .copy()
 )
+top_highest["avg_rating"] = top_highest["avg_rating"].map("{:.1f}".format)
+top_highest.columns = ["Title", "Release Year", "Average Rating"]
+st.table(top_highest)
+
+# Add spacing between tables
+st.markdown("---")
+
+# --- Lowest Rated Movies ---
+st.subheader("💔 Top 10 Lowest Rated Movies")
+low_highest = (
+    df.sort_values("avg_rating", ascending=True)
+      .head(10)[["title", "release_year", "avg_rating"]]
+      .copy()
+)
+low_highest["avg_rating"] = low_highest["avg_rating"].map("{:.1f}".format)
+low_highest.columns = ["Title", "Release Year", "Average Rating"]
+st.table(low_highest)
+
 
 
 # ==============================
