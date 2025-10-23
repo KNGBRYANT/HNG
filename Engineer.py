@@ -49,36 +49,30 @@ st.header("📊 Raw Movie Data")
 num_rows = st.slider("Number of rows to view:", 5, 100, 10, step=5)
 st.dataframe(df.head(num_rows))
 
-# --- Top 10 Highest Rated Movies ---
-st.subheader("⭐ Top 10 Highest Rated Movies")
+# ---- Section: Ratings Overview ----
+st.markdown("🎬 Movie Ratings Overview")
 
-top10 = (
-    df_filtered.sort_values('avg_rating', ascending=False)
-    .head(10)[['title', 'release_year', 'avg_rating']]
-    .copy()
+# Format column names to look professional (e.g., 'Release Year' instead of 'release_year')
+df.columns = [col.replace("_", " ").title() for col in df.columns]
+
+# Top 10 Highest Rated Movies
+st.markdown("⭐ Top 10 Highest Rated Movies")
+top_highest = df.sort_values("Imdb Rating", ascending=False).head(10)
+st.dataframe(
+    top_highest.style.hide(axis="index"),
+    use_container_width=True
 )
-top10['avg_rating'] = top10['avg_rating'].map("{:.1f}".format)
-top10.columns = ['Title', 'Release Year', 'Average Rating']  # nicer headers
 
-st.table(top10)
+st.markdown("---")  # horizontal line for separation
 
-
-# --- Spacer between tables ---
-st.markdown("---")  # adds a horizontal line for separation
-
-
-# --- Top 10 Lowest Rated Movies ---
-st.subheader("💔 Top 10 Lowest Rated Movies")
-
-low10 = (
-    df_filtered.sort_values('avg_rating', ascending=True)
-    .head(10)[['title', 'release_year', 'avg_rating']]
-    .copy()
+# Top 10 Lowest Rated Movies
+st.markdown("💔 Top 10 Lowest Rated Movies")
+top_lowest = df.sort_values("Imdb Rating", ascending=True).head(10)
+st.dataframe(
+    top_lowest.style.hide(axis="index"),
+    use_container_width=True
 )
-low10['avg_rating'] = low10['avg_rating'].map("{:.1f}".format)
-low10.columns = ['Title', 'Release Year', 'Average Rating']
 
-st.table(low10)
 
 # ==============================
 # Average Rating by Number of Genres
