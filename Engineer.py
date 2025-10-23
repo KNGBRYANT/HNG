@@ -58,7 +58,7 @@ df.columns = [col.replace("_", " ").title() for col in df.columns]
 
 # Top 10 Highest Rated Movies
 st.markdown("⭐ Top 10 Highest Rated Movies")
-top_highest = df.sort_values("Imdb Rating", ascending=False).head(10)
+top_highest = df.sort_values("avg_rating", ascending=False).head(10)
 st.dataframe(
     top_highest.style.hide(axis="index"),
     use_container_width=True
@@ -68,7 +68,7 @@ st.markdown("---")  # horizontal line for separation
 
 # Top 10 Lowest Rated Movies
 st.markdown("💔 Top 10 Lowest Rated Movies")
-top_lowest = df.sort_values("Imdb Rating", ascending=True).head(10)
+top_lowest = df.sort_values("avg_rating", ascending=True).head(10)
 st.dataframe(
     top_lowest.style.hide(axis="index"),
     use_container_width=True
