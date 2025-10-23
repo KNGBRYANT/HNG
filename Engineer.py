@@ -130,7 +130,7 @@ most_tagged = df_known.sort_values('n0_of_tags', ascending=False).head(10)
 
 fig, ax = plt.subplots(figsize=(10, 6))
 sns.barplot(
-    y='title', x='N0_of_tags',
+    y='title', x='n0_of_tags',
     data=most_tagged, palette='plasma', ax=ax
 )
 for i, v in enumerate(most_tagged['N0_of_tags']):
