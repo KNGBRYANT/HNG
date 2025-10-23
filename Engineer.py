@@ -140,3 +140,24 @@ ax.set_ylabel("Movie Title")
 ax.set_title("Top 10 Most Tagged Movies (Excluding Unknown)")
 st.pyplot(fig)
 plt.close(fig)
+
+
+
+
+st.subheader("Genre vs Rating vs Age")
+
+fig, ax = plt.subplots(figsize=(12,6))
+sns.scatterplot(
+    data=df_filtered,
+    x='movie_age', 
+    y='avg_rating', 
+    hue='main_genre', 
+    palette='tab20', 
+    s=100,  # marker size
+    ax=ax
+)
+ax.set_xlabel("Movie Age (Years)")
+ax.set_ylabel("Average Rating")
+ax.set_title("Genre vs Rating vs Movie Age")
+ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+st.pyplot(fig)
