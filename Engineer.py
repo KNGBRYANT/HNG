@@ -31,6 +31,8 @@ Explore and analyze ratings, genres, tags, and trends.
 Use filters to focus on what matters most!
 """)
 
+st.write("Columns in dataset:", list(df.columns))
+
 # ==============================
 # Filters
 # ==============================
