@@ -78,7 +78,7 @@ df_filtered = df[
 st.header("📊 Raw Movie Data")
 
 num_rows = st.slider("Number of rows to view:", 5, 100, 10, step=5)
-st.dataframe(df.head(num_rows))
+st.dataframe(df_filtered.head(num_rows))
 
 # ---- Section: Ratings Overview ----
 st.markdown("🎬 Movie Ratings Overview")
@@ -95,7 +95,7 @@ df.columns = df.columns.str.strip().str.lower()
 # --- Highest Rated Movies ---
 st.subheader("⭐ Top 10 Highest Rated Movies")
 top_highest = (
-    df.sort_values("avg_rating", ascending=False)
+   df_filtered.sort_values("avg_rating", ascending=False)
       .head(10)[["title", "release_year", "avg_rating"]]
       .copy()
 )
@@ -109,7 +109,7 @@ st.markdown("---")
 # --- Lowest Rated Movies ---
 st.subheader("💔 Top 10 Lowest Rated Movies")
 low_highest = (
-    df.sort_values("avg_rating", ascending=True)
+    df_filtered.sort_values("avg_rating", ascending=True)
       .head(10)[["title", "release_year", "avg_rating"]]
       .copy()
 )
