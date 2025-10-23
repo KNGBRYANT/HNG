@@ -18,7 +18,8 @@ def load_data():
     return df
 
 df = load_data()
-df.columns = [col.replace("_", " ").title() for col in df.columns]
+df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
+
 
 # ==============================
 # Title and Introduction
