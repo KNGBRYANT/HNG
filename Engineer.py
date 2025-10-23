@@ -133,7 +133,7 @@ sns.barplot(
     y='title', x='n0_of_tags',
     data=most_tagged, palette='plasma', ax=ax
 )
-for i, v in enumerate(most_tagged['N0_of_tags']):
+for i, v in enumerate(most_tagged['n0_of_tags']):
     ax.text(v + 0.3, i, f"{int(v)}", va='center', fontsize=9)
 ax.set_xlabel("Number of Tags")
 ax.set_ylabel("Movie Title")
