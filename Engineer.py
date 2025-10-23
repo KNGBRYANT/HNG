@@ -32,15 +32,45 @@ Use filters to focus on what matters most!
 """)
 
 # ==============================
-# Filters
+# 🔍 Global Filters
 # ==============================
-genre_filter = st.multiselect(
+
+st.sidebar.header("🎚️ Dashboard Filters")
+
+# --- Genre Filter ---
+genre_filter = st.sidebar.multiselect(
     "🎭 Select Genre(s):",
     options=df['main_genre'].dropna().unique().tolist(),
     default=df['main_genre'].dropna().unique().tolist()
 )
 
-df_filtered = df[df['main_genre'].isin(genre_filter)]
+# --- Movie Age Range Filter (every 10 years) ---
+min_age = int(df['movie_age'].min())
+max_age = int(df['movie_age'].max())
+
+age_range = st.sidebar.slider(
+    "🕰️ Select Movie Age Range (Years):",
+    min_value=min_age,
+    max_value=max_age,
+    value=(min_age, max_age),
+    step=10
+)
+
+# --- Rating Range Filter (0 to 5) ---
+rating_range = st.sidebar.slider(
+    "⭐ Select Average Rating Range:",
+    min_value=0.0,
+    max_value=5.0,
+    value=(0.0, 5.0),
+    step=0.5
+)
+
+# --- Apply Filters ---
+df_filtered = df[
+    (df['main_genre'].isin(genre_filter)) &
+    (df['movie_age'].between(age_range[0], age_range[1])) &
+    (df['avg_rating'].between(rating_range[0], rating_range[1]))
+]
 
 # ==============================
 # Raw Data Section
