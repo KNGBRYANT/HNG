@@ -31,8 +31,6 @@ Explore and analyze ratings, genres, tags, and trends.
 Use filters to focus on what matters most!
 """)
 
-st.write("Columns in dataset:", list(df.columns))
-
 # ==============================
 # Filters
 # ==============================
@@ -128,7 +126,7 @@ plt.close(fig)
 st.header("🏷️ Top 10 Most Tagged Movies")
 
 df_known = df_filtered[df_filtered['title'].str.lower() != 'unknown']
-most_tagged = df_known.sort_values('N0_of_tags', ascending=False).head(10)
+most_tagged = df_known.sort_values('n0_of_tags', ascending=False).head(10)
 
 fig, ax = plt.subplots(figsize=(10, 6))
 sns.barplot(
