@@ -225,3 +225,40 @@ ax.legend(title="Average Rating", bbox_to_anchor=(1.05, 1), loc='upper left')
 # Display the chart
 st.pyplot(fig)
 plt.close(fig)
+
+
+# ==============================
+# Summary & Conclusion Section
+# ==============================
+st.header("🧭 Summary & Conclusion")
+
+st.markdown("""
+This dashboard explored the **MovieLens dataset** through **feature engineering** and **exploratory data analysis (EDA)** to uncover insights into movie characteristics, ratings, and user engagement.
+
+### Key Insights:
+- 🎭 **Genres & Tags:** Movies with moderate genre diversity (3–4 genres) tend to receive slightly higher ratings. Tags such as *“Atmospheric”* and *“Superhero”* reflect dominant viewing trends.  
+- ⭐ **Ratings Behavior:** Most movies cluster between ratings of 3–4, showing generally positive audience sentiment.  
+- 🎞️ **Movie Age:** While newer movies dominate activity, older classics continue to maintain strong ratings.  
+- 📈 **Engagement:** Highly tagged movies such as *Pulp Fiction* and *Fight Club* show long-term audience engagement.  
+
+### Recommendation System Implications:
+- `main_genre` and `num_genres` can help cluster similar movies.
+- `avg_rating` and `movie_age` can balance **trending vs. classic** recommendations.
+- `N0_of_tags` reflects popularity and engagement — useful for **collaborative filtering**.
+- User tags can enrich **content-based filtering** by matching movie themes and genres.
+
+### Final Note:
+These findings set the foundation for building a **movie recommendation engine** that intelligently combines ratings, genres, tags, and movie age to deliver personalized movie suggestions and improve user discovery experiences.
+""")
+
+st.markdown("---")
+st.success("🎬 Analysis Completed — MovieLens Feature Engineering & EDA by **Lawal Mayowa**")
+
+
+
+st.markdown("""
+<div style='text-align: center; color: grey; font-size: 0.9em;'>
+Developed by <b>Lawal Mayowa</b> | Stage 1 - MovieLens Feature Engineering & EDA | © 2025
+</div>
+""", unsafe_allow_html=True)
+
