@@ -55,9 +55,6 @@ st.dataframe(df.head(num_rows))
 # ---- Section: Ratings Overview ----
 st.markdown("🎬 Movie Ratings Overview")
 
-# Format column names to look professional (e.g., 'Release Year' instead of 'release_year')
-df.columns = [col.replace("_", " ").title() for col in df.columns]
-
 
 
 
